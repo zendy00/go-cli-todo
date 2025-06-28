@@ -12,8 +12,7 @@
 [설치하기](#-설치) •
 [사용법](#-사용법) •
 [기능](#-주요-기능) •
-[예시](#-사용-예시) •
-[기여하기](#-기여하기)
+[예시](#-사용-예시)
 
 </div>
 
@@ -39,21 +38,15 @@ CLI TODO Manager는 Go로 작성된 가볍고 빠른 명령행 할일 관리 도
 
 ```bash
 # 레포지토리 클론
-git clone https://github.com/zendy00/cli-todo-manager.git
-cd cli-todo-manager
+git clone https://github.com/zendy00/go-cli-todo.git
+cd go-cli-todo
 
-# 빌드
-go build -o todo main.go
+# Makefile 기반 빌드
+make build
 
 # 시스템 PATH에 추가 (선택사항)
-sudo mv todo /usr/local/bin/
+sudo mv bin/todo /usr/local/bin/
 ```
-
-### 릴리즈 다운로드
-
-최신 릴리즈에서 운영체제에 맞는 바이너리를 다운로드하세요:
-
-[![Download](https://img.shields.io/badge/Download-Latest%20Release-blue.svg)](https://github.com/zendy00/cli-todo-manager/releases)
 
 ---
 
@@ -142,13 +135,16 @@ $ todo -toggle -id=1
 ## 🏗️ 프로젝트 구조
 
 ```
-cli-todo-manager/
-├── main.go           # 메인 애플리케이션 코드
-├── todos.json        # 데이터 저장 파일 (자동 생성)
-├── README.md         # 프로젝트 문서
-├── LICENSE          # 라이선스 파일
-└── examples/        # 사용 예시들
-    └── demo.gif     # 데모 GIF
+go-cli-todo/
+├── .gitignore            # Git 버전관리 제외 파일 목록
+├── main.go               # 메인 엔트리포인트
+├── todo.go               # Todo 구조체 및 관련 함수
+├── todo_manager.go       # TodoManager 구조체 및 메서드
+├── todos.json            # 할일 데이터 저장 파일 (자동 생성)
+├── go.mod                # Go 모듈 설정 파일
+├── README.md             # 프로젝트 설명서
+├── LICENSE               # 라이선스 파일
+└── Makefile              # 빌드 및 관리용 Makefile
 ```
 
 ---
@@ -180,47 +176,6 @@ type Todo struct {
 
 ---
 
-## 🤝 기여하기
-
-프로젝트에 기여해주셔서 감사합니다! 다음과 같은 방법으로 참여할 수 있습니다:
-
-### 🐛 버그 리포트
-버그를 발견하셨나요? [이슈를 생성](https://github.com/zendy00/cli-todo-manager/issues/new)해 주세요.
-
-### 💡 기능 제안
-새로운 기능 아이디어가 있으시면 [토론](https://github.com/zendy00/cli-todo-manager/discussions)에서 공유해 주세요.
-
-### 🔧 코드 기여
-
-1. 레포지토리를 포크합니다
-2. 새로운 브랜치를 생성합니다 (`git checkout -b feature/amazing-feature`)
-3. 변경사항을 커밋합니다 (`git commit -m 'Add amazing feature'`)
-4. 브랜치에 푸시합니다 (`git push origin feature/amazing-feature`)
-5. Pull Request를 생성합니다
-
----
-
-## 🗺️ 로드맵
-
-### v1.1 (예정)
-- [ ] 할일 우선순위 기능
-- [ ] 마감일 설정 및 알림
-- [ ] 태그 시스템
-- [ ] 검색 기능
-
-### v1.2 (예정)
-- [ ] 할일 카테고리 분류
-- [ ] 통계 기능 (완료율, 생산성 지표)
-- [ ] 데이터 내보내기/가져오기
-- [ ] 컬러 테마 지원
-
-### v2.0 (미래)
-- [ ] 팀 협업 기능
-- [ ] 웹 대시보드
-- [ ] 모바일 동기화
-
----
-
 ## 📄 라이선스
 
 이 프로젝트는 MIT 라이선스 하에 배포됩니다. 자세한 내용은 [LICENSE](LICENSE) 파일을 참조하세요.
@@ -231,19 +186,8 @@ type Todo struct {
 
 문제가 있으시거나 질문이 있으시면:
 
-- 📧 **이메일**: your.email@example.com
-- 💬 **이슈 트래커**: [GitHub Issues](https://github.com/zendy00/cli-todo-manager/issues)
-- 💡 **토론**: [GitHub Discussions](https://github.com/zendy00/cli-todo-manager/discussions)
+- 📧 **이메일**: zendy00@gmail.com
+- 💬 **이슈 트래커**: [GitHub Issues](https://github.com/zendy00/go-cli-todo/issues)
+- 💡 **토론**: [GitHub Discussions](https://github.com/zendy00/go-cli-todo/discussions)
 
 ---
-
-<div align="center">
-
-**CLI TODO Manager를 사용해주셔서 감사합니다!** ⭐
-
-스타를 눌러주시면 프로젝트 개발에 큰 도움이 됩니다.
-
-[![GitHub stars](https://img.shields.io/github/stars/zendy00/cli-todo-manager.svg?style=social&label=Star)](https://github.com/zendy00/cli-todo-manager)
-[![GitHub forks](https://img.shields.io/github/forks/zendy00/cli-todo-manager.svg?style=social&label=Fork)](https://github.com/zendy00/cli-todo-manager/fork)
-
-</div>
